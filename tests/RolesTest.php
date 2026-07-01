@@ -2,13 +2,13 @@
 
 namespace TCG\Voyager\Tests;
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Models\Role;
 
 class RolesTest extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     protected $user;
     protected $permission_id = 3;

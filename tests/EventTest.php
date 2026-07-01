@@ -2,7 +2,7 @@
 
 namespace TCG\Voyager\Tests;
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
@@ -24,7 +24,7 @@ use TCG\Voyager\Models\Page;
 
 class EventTest extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     public function testBreadAddedEvent()
     {
