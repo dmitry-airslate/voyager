@@ -38,7 +38,7 @@ jobs:
       - name: Select PHP version
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '${{ env.PHP_VERSION }}'
+          php-version: '${{ matrix.php }}'
           extensions: mbstring, pdo_sqlite, fileinfo, gd
           coverage: pcov
           tools: composer:v2
@@ -52,8 +52,8 @@ jobs:
       - name: Configure Laravel test environment
         run: |
           composer require --dev \
-            "laravel/framework:${{ env.LARAVEL_VERSION }}" \
-            "orchestra/testbench:${{ env.TESTBENCH_VERSION }}" \
+            "laravel/framework:${{ matrix.laravel }}" \
+            "orchestra/testbench:${{ matrix.testbench }}" \
             --no-update \
             --no-interaction \
             --no-ansi
