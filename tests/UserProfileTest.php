@@ -11,8 +11,6 @@ use TCG\Voyager\Models\User;
 
 class UserProfileTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected $user;
 
     protected $editPageForTheCurrentUser;

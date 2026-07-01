@@ -8,8 +8,6 @@ use TCG\Voyager\Models\Role;
 
 class RolesTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected $user;
     protected $permission_id = 3;
 

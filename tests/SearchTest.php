@@ -14,8 +14,6 @@ use TCG\Voyager\Models\User;
 
 class SearchTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected $user;
 
     public function setUp(): void

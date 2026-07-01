@@ -24,8 +24,6 @@ use TCG\Voyager\Models\Page;
 
 class EventTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function testBreadAddedEvent()
     {
         Event::fake();
