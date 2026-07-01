@@ -3,7 +3,7 @@ name: Tests
 on:
   push:
     branches:
-      - '*'
+      - '1.*'
   pull_request:
     types:
       - synchronize
