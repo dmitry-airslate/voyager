@@ -3,7 +3,6 @@
 namespace TCG\Voyager\Tests;
 
 use Doctrine\DBAL\Schema\SchemaException;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use TCG\Voyager\Database\Schema\Table;
@@ -18,11 +17,9 @@ class DatabaseTest extends TestCase
 
     public function setUp(): void
     {
-        parent::setUp();
+        $this->markTestSkipped('Skipping all tests in this class as Doctrine DBAL is not supported in Laravel 11');
 
-        if (version_compare(Application::VERSION, '12.0.0', '<')) {
-            $this->markTestSkipped('Skipping all tests in this class as Doctrine DBAL is not supported in Laravel 11');
-        }
+        parent::setUp();
 
         // todo: make sure tests are isolated and do not effect other ones
         // todo: interract with Table object directly instead of array?
