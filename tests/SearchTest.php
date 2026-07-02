@@ -2,7 +2,7 @@
 
 namespace TCG\Voyager\Tests;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +14,8 @@ use TCG\Voyager\Models\User;
 
 class SearchTest extends TestCase
 {
+    use DatabaseTransactions;
+
     protected $user;
 
     public function setUp(): void
