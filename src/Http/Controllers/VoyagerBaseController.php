@@ -118,7 +118,9 @@ class VoyagerBaseController extends Controller
                 $query->forceIndex(implode(',', $forceIndexNames));
             }
 
-            $total = DB::selectOne(sprintf('SHOW TABLE STATUS LIKE "%s"',$model->getTable()))?->Rows ?? null;
+            $total = DB::connection()->getDriverName() === 'mysql'
+                ? DB::selectOne(sprintf('SHOW TABLE STATUS LIKE "%s"', $model->getTable()))?->Rows ?? null
+                : null;
 
             $row = $dataType->rows->where('field', $orderBy)->firstWhere('type', 'relationship');
             if ($orderBy && (in_array($orderBy, $dataType->fields()) || !empty($row))) {
