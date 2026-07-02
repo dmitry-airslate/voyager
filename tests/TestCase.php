@@ -75,30 +75,13 @@ class TestCase extends OrchestraTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        // Use MySQL when DB_CONNECTION=mysql env variable is set (e.g. in CI),
-        // otherwise fall back to SQLite :memory: for local development.
-        if (getenv('DB_CONNECTION') === 'mysql') {
-            $app['config']->set('database.default', 'testbench');
-            $app['config']->set('database.connections.testbench', [
-                'driver'    => 'mysql',
-                'host'      => getenv('DB_HOST') ?: '127.0.0.1',
-                'port'      => getenv('DB_PORT') ?: '3306',
-                'database'  => getenv('DB_DATABASE') ?: 'voyager_test',
-                'username'  => getenv('DB_USERNAME') ?: 'root',
-                'password'  => getenv('DB_PASSWORD') ?: '',
-                'charset'   => 'utf8mb4',
-                'collation' => 'utf8mb4_unicode_ci',
-                'prefix'    => '',
-            ]);
-        } else {
-            // Setup default database to use sqlite :memory:
-            $app['config']->set('database.default', 'testbench');
-            $app['config']->set('database.connections.testbench', [
-                'driver'   => 'sqlite',
-                'database' => ':memory:',
-                'prefix'   => '',
-            ]);
-        }
+        // Setup default database to use sqlite :memory:
+        $app['config']->set('database.default', 'testbench');
+        $app['config']->set('database.connections.testbench', [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => '',
+        ]);
 
         // Setup Voyager configuration
         $app['config']->set('voyager.user.namespace', User::class);
